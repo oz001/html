@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>矢印キーでの移動</title>
+<style>
+  #box {
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: red;
+  }
+</style>
+</head>
+<body>
+<div id="box"></div>
+<script>
+  const box = document.getElementById('box');
+  let x = 0; // leftの代わりにxを使用
+  let y = 0; // topの代わりにyを使用
+
+  window.addEventListener('keydown', (e) => {
+    const step = 5;
+    switch (e.key) {
+      case 'ArrowLeft':
+        x -= step;
+        break;
+      case 'ArrowRight':
+        x += step;
+        break;
+      case 'ArrowUp':
+        y -= step;
+        break;
+      case 'ArrowDown':
+        y += step;
+        break;
+      default:
+        return;
+    }
+
+    box.style.left = x + 'px'; // leftの代わりにxを使用
+    box.style.top = y + 'px'; // topの代わりにyを使用
+  });
+</script>
+</body>
+</html>
+
